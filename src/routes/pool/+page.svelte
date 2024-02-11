@@ -1,7 +1,13 @@
 <script lang="ts">
-export let data
+import { Categories } from '$lib/nominees'
 </script>
 
-<h1>Pool</h1>
-<p>displayName: {data.user.displayName}</p>
-<p>email: {data.user.email}</p>
+{#each Categories as category}
+  <h2>{category.name}</h2>
+
+  <ul>
+    {#each category.nominees as nominee}
+      <li>{nominee}</li>
+    {/each}
+  </ul>
+{/each}
