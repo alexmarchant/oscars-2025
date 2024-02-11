@@ -75,7 +75,8 @@ export const Categories: Category[] = [
       "Anatomy of a Fall — Justine Triet and Arthur Harari",
       "The Holdovers — David Hemingson",
       "Maestro — Bradley Cooper and Josh Singer",
-      "May December — Samy Burch and Alex Mechanik"
+      "May December — Samy Burch and Alex Mechanik",
+      "Past Lives — Celine Song"
     ]
   },
   {
@@ -191,11 +192,11 @@ export const Categories: Category[] = [
   {
     "name": "Best International Feature Film",
     "nominees": [
-      "Io Capitano",
-      "Perfect Days",
-      "Society of the Snow",
-      "The Teachers’ Lounge",
-      "The Zone of Interest"
+      "Io Capitano — Italy",
+      "Perfect Days — Japan",
+      "Society of the Snow — Spain",
+      "The Teachers’ Lounge — Germany",
+      "The Zone of Interest — UK"
     ]
   },
   {

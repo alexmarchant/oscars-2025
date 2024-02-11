@@ -31,11 +31,13 @@ export const actions = {
       })
     }
 
-    const resultVotes = await votes.upsert({
+    await votes.upsert({
       userId,
       votes: upsertData,
     })
 
-    console.log(resultVotes)
+    return {
+      saved: true
+    }
 	},
 }

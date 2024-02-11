@@ -1,12 +1,11 @@
 <script lang="ts">
-import type { ActionData } from './$types'
 import Input from '$lib/components/Input.svelte'
 import Error from '$lib/components/Error.svelte'
 import Button from '$lib/components/Button.svelte'
 import Form from '$lib/components/Form.svelte'
 import A from '$lib/components/A.svelte' 
 
-export let form: ActionData
+export let form
 </script>
 
 <Form>
