@@ -1,6 +1,6 @@
 <script lang="ts">
 import Input from '$lib/components/Input.svelte'
-import Error from '$lib/components/Error.svelte'
+import Message from '$lib/components/Message.svelte'
 import Button from '$lib/components/Button.svelte'
 import Form from '$lib/components/Form.svelte'
 import A from '$lib/components/A.svelte' 
@@ -22,8 +22,8 @@ export let form
     value={form?.password ?? ''}
   />
 
-  {#if form?.missingRequired}<Error>Missing required fields</Error>{/if}
-  {#if form?.incorrectEmailOrPassword}<Error>Incorrect email or password</Error>{/if}
+  {#if form?.missingRequired}<Message type="error">Missing required fields</Message>{/if}
+  {#if form?.incorrectEmailOrPassword}<Message type="error">Incorrect email or password</Message>{/if}
 
   <p>
     <Button type="submit">
