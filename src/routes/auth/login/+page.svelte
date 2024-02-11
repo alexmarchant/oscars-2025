@@ -1,29 +1,36 @@
 <script lang="ts">
-	import type { ActionData } from './$types'
-	export let form: ActionData
+import type { ActionData } from './$types'
+import Input from '$lib/components/Input.svelte'
+import Error from '$lib/components/Error.svelte'
+import Button from '$lib/components/Button.svelte'
+import Form from '$lib/components/Form.svelte'
+import A from '$lib/components/A.svelte' 
+
+export let form: ActionData
 </script>
 
-<h1>Signup</h1>
+<Form>
+  <Input
+    type="email"
+    displayName="Email"
+    name="email"
+    value={form?.email ?? ''}
+  />
+  <Input
+    type="password"
+    displayName="Password"
+    name="password"
+    value={form?.password ?? ''}
+  />
 
-<form method="POST">
-  <p>
-    <label>
-      Email
-      <input type="email" name="email" value={form?.email ?? ''} />
-    </label>
-  </p>
-
-  <p>
-    <label>
-      Password
-      <input type="password" name="password" value={form?.password ?? ''} />
-    </label>
-  </p>
-
-  {#if form?.missingRequired}<p class="error">Missing required fields</p>{/if}
-  {#if form?.incorrectEmailOrPassword}<p class="error">Incorrect email or password</p>{/if}
+  {#if form?.missingRequired}<Error>Missing required fields</Error>{/if}
+  {#if form?.incorrectEmailOrPassword}<Error>Incorrect email or password</Error>{/if}
 
   <p>
-    <button type="submit">Login</button>
+    <Button type="submit">
+      Login
+    </Button>
   </p>
-</form>
+</Form>
+
+<A href="/auth/signup">Signup &gt;&gt;</A>

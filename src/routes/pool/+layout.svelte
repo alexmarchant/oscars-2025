@@ -1,8 +1,10 @@
 <script lang="ts">
+import Button from '$lib/components/Button.svelte'
+
 export let data
 </script>
 
-<div class="flex justify-between items-center my-1 mx-3">
+<div class="flex justify-between items-center mb-2">
   <div>
     <h1>Oscar Pool 2024</h1>
   </div>
@@ -13,9 +15,9 @@ export let data
     </div>
 
     <form method="POST" action="/auth/logout">
-      <button class="ml-5 border-2 border-black px-2 py-1 hover:bg-gray-200">
+      <Button type="submit" className="ml-2">
         Logout
-      </button>
+      </Button>
     </form>
   </div>
 </div>

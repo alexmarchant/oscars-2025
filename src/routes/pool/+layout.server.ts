@@ -1,27 +1,12 @@
-import { User } from '$lib/models/user'
-import { SessionTokenKey } from '$lib/contants'
 import { redirect } from '@sveltejs/kit'
 
-export async function load ({ cookies }) {
-	const sessionToken = cookies.get(SessionTokenKey)
-
-  if (!sessionToken) {
-    console.log('Missing sessionToken')
-    unauthorized()
-  }
-
-  const user = await User.findBySessionToken({ sessionToken })
-
-  if (!user) {
-    console.log(`No user found with sessionToken: ${sessionToken}`)
-    unauthorized()
+export async function load ({ locals }) {
+  if (!locals.user) {
+    throw redirect(302, '/auth/signup')
   }
 
 	return {
-		user: user.toJSON(),
+		user: locals.user,
 	}
 }
 
-function unauthorized (): never {
-  throw redirect(302, '/auth/signup')
-}

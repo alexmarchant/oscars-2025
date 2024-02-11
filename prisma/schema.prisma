@@ -11,20 +11,20 @@ datasource db {
 }
 
 model User {
-  id           Int    @id @default(autoincrement())
-  email        String @unique
-  displayName  String @unique
-  passwordHash String
-  sessionToken String @unique
-  picks        Pick[]
+  id            Int            @id @default(autoincrement())
+  email         String         @unique
+  displayName   String         @unique
+  passwordHash  String
+  sessionToken  String         @unique
+  categoryPicks CategoryPick[]
 }
 
-model Pick {
+model CategoryPick {
   id       Int    @id @default(autoincrement())
   user     User   @relation(fields: [userId], references: [id])
   userId   Int
   category String
-  pick     String
+  nominee  String
 
   @@unique([userId, category], name: "user_category_unique")
 }

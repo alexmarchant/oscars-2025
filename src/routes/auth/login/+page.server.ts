@@ -1,5 +1,5 @@
 import { fail } from '@sveltejs/kit'
-import { User } from '$lib/models/user'
+import * as users from '$lib/models/users'
 import { SessionTokenKey } from '$lib/contants'
 import { redirect } from '@sveltejs/kit'
 
@@ -18,19 +18,20 @@ export const actions = {
 			})
 		}
 
-		const sessionToken = await User.auth({
-			email,
-			password,
-		})
-
-		if (!sessionToken) {
+		let authResult: Awaited<ReturnType<typeof users.auth>>
+		try {
+			authResult = await users.auth({
+				email,
+				password,
+			})
+		} catch (error) {
 			return fail(400, {
 				...values,
 				incorrectEmailOrPassword: true,
 			})
 		}
 
-		cookies.set(SessionTokenKey, sessionToken, { path: '/' })
+		cookies.set(SessionTokenKey, authResult.sessionToken, { path: '/' })
 
 		redirect(302, '/pool')
 	},

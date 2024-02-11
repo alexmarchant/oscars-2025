@@ -1,5 +1,5 @@
 import { fail } from '@sveltejs/kit'
-import { User } from '$lib/models/user'
+import * as users from '$lib/models/users'
 import { SessionTokenKey } from '$lib/contants'
 import { redirect } from '@sveltejs/kit'
 import { validateEmail } from '$lib/validations'
@@ -35,7 +35,7 @@ export const actions = {
 			})
 		}
 
-		const sessionToken = await User.create({
+		const { sessionToken } = await users.create({
 			displayName,
 			email,
 			password,

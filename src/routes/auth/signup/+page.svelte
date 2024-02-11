@@ -1,44 +1,49 @@
 <script lang="ts">
-	import type { ActionData } from './$types'
-	export let form: ActionData
+import type { ActionData } from './$types'
+import Input from '$lib/components/Input.svelte' 
+import Button from '$lib/components/Button.svelte'
+import Error from '$lib/components/Error.svelte'
+import Form from '$lib/components/Form.svelte'
+import A from '$lib/components/A.svelte' 
+
+export let form: ActionData
 </script>
 
-<h1>Signup</h1>
+<Form>
+  <Input
+    type="text"
+    displayName="Display name"
+    name="displayName"
+    value={form?.displayName ?? ''}
+  />
+  <Input
+    type="email"
+    displayName="Email"
+    name="email"
+    value={form?.email ?? ''}
+  />
+  <Input
+    type="password"
+    displayName="Password"
+    name="password"
+    value={form?.password ?? ''}
+  />
+  <Input
+    type="password"
+    displayName="Confirm password"
+    name="passwordConfirmation"
+    value={form?.passwordConfirmation ?? ''}
+  />
 
-<form method="POST">
-  <p>
-    <label>
-      Display name
-      <input type="text" name="displayName" value={form?.displayName ?? ''} />
-    </label>
-  </p>
-
-  <p>
-    <label>
-      Email
-      <input type="email" name="email" value={form?.email ?? ''} />
-    </label>
-  </p>
-
-  <p>
-    <label>
-      Password
-      <input type="password" name="password" value={form?.password ?? ''} />
-    </label>
-  </p>
-
-  <p>
-    <label>
-      Confirm password
-      <input type="password" name="passwordConfirmation" value={form?.passwordConfirmation ?? ''} />
-    </label>
-  </p>
-
-  {#if form?.missingRequired}<p class="error">Missing required fields</p>{/if}
-  {#if form?.invalidEmail}<p class="error">Invalid email</p>{/if}
-  {#if form?.passwordMatch}<p class="error">Passwords don't match</p>{/if}
+  {#if form?.missingRequired}<Error>Missing required fields</Error>{/if}
+  {#if form?.invalidEmail}<Error>Invalid email</Error>{/if}
+  {#if form?.passwordMatch}<Error>Passwords don't match</Error>{/if}
 
   <p>
-    <button type="submit">Signup</button>
+    <Button type="submit">
+      Signup
+    </Button>
   </p>
-</form>
+</Form>
+
+<A href="/auth/login">Login &gt;&gt;</A>
