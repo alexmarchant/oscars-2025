@@ -1,6 +1,15 @@
 import type { UpsertVoteData } from "$lib/models/votes"
 import * as votes from "$lib/models/votes"
 
+export async function load ({ locals }) {
+  const userId = locals.user!.id!
+  const userVotes = await votes.findByUserId(userId)
+
+  return { 
+    votes: votes.mapVotes(userVotes),
+  }
+}
+
 export const actions = {
 	async default ({ locals, request }) {
     const userId = locals.user!.id!

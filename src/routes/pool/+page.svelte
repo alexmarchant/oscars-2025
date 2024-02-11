@@ -3,6 +3,8 @@ import { Categories } from '$lib/nominees'
 import Radio from '$lib/components/Radio.svelte'
 import Form from '$lib/components/Form.svelte'
 import Button from '$lib/components/Button.svelte'
+
+export let data
 </script>
 
 <Form>
@@ -17,12 +19,18 @@ import Button from '$lib/components/Button.svelte'
       <ul>
         {#each category.nominees as nominee}
           <li>
-            <Radio name={category.name} displayName={nominee} value="" />
+            <Radio
+              name={category.name}
+              displayName={nominee}
+              value={nominee}
+              checked={data.votes[category.name] === nominee}
+            />
           </li>
         {/each}
       </ul>
     </div>
   {/each}
+
   <Button type="submit">
     Save
   </Button>

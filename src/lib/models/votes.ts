@@ -3,6 +3,10 @@ import type { Vote as PrismaVote } from '@prisma/client'
 
 export type Vote = PrismaVote
 
+export interface VoteMap {
+  [category: string]: string
+}
+
 export interface UpsertVoteData {
   category: string
   nominee: string
@@ -33,4 +37,19 @@ export async function upsert({ userId, votes }: { userId: number, votes: UpsertV
   })
 
   return Promise.all(promises)
+}
+
+export async function findByUserId(userId: number): Promise<Vote[]> {
+  return prisma.vote.findMany({
+    where: {
+      userId,
+    }
+  })
+}
+
+export function mapVotes(votes: Vote[]): VoteMap {
+  return votes.reduce((acc, vote) => {
+    acc[vote.category] = vote.nominee
+    return acc
+  }, {} as VoteMap)
 }

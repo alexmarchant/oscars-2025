@@ -2,6 +2,7 @@
 export let displayName: string
 export let name: string
 export let value: string
+export let checked: boolean = false
 </script>
 
 <label class="flex items-center">
@@ -10,6 +11,7 @@ export let value: string
     type="radio"
     name={name}
     value={value}
+    checked={checked}
   />
   {displayName}
 </label>
