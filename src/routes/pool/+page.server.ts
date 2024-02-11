@@ -1,10 +1,12 @@
-import { Pick } from "$lib/models/picks"
+import type { UpsertVoteData } from "$lib/models/votes"
+import * as votes from "$lib/models/votes"
 
 export const actions = {
 	async default ({ locals, request }) {
+    const userId = locals.user!.id!
 		const data = await request.formData()
 
-    const picks: Pick[] = []
+    const upsertData: UpsertVoteData[] = []
 
     for (const entry of data.entries()) {
       const category = entry[0]
@@ -14,15 +16,17 @@ export const actions = {
         throw new Error('Nominee must be a string')
       }
 
-      const pick = new Pick({
-        userId: locals.user!.id!,
+      upsertData.push({
         category,
         nominee,
       })
-      picks.push(pick)
     }
 
-    await Pick.upsert(picks)
-    console.log(picks)
+    const resultVotes = await votes.upsert({
+      userId,
+      votes: upsertData,
+    })
+
+    console.log(resultVotes)
 	},
 }

@@ -11,15 +11,15 @@ datasource db {
 }
 
 model User {
-  id            Int            @id @default(autoincrement())
-  email         String         @unique
-  displayName   String         @unique
-  passwordHash  String
-  sessionToken  String         @unique
-  categoryPicks CategoryPick[]
+  id           Int    @id @default(autoincrement())
+  email        String @unique
+  displayName  String @unique
+  passwordHash String
+  sessionToken String @unique
+  votes        Vote[]
 }
 
-model CategoryPick {
+model Vote {
   id       Int    @id @default(autoincrement())
   user     User   @relation(fields: [userId], references: [id])
   userId   Int
