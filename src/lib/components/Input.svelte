@@ -10,7 +10,7 @@ export let value: string
     {displayName}
     <br>
     <input
-      class="border border-black outline-none w-full px-2 py-1"
+      class="border border-black rounded-none outline-none w-full px-2 py-1"
       type={type}
       name={name}
       value={value}
