@@ -1,3 +1,3 @@
-<form method="POST" class="w-80 mb-2">
+<form method="POST" class="w-full mb-2">
   <slot />
 </form>
