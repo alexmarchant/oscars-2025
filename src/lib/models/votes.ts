@@ -13,10 +13,6 @@ export interface UpsertVoteData {
 }
 
 export async function upsert({ userId, votes }: { userId: number, votes: UpsertVoteData[] }): Promise<Vote[]> {
-  if (!votes.length) {
-    throw new Error('At least one vote is required')
-  }
-
   const promises = votes.map(vote => {
     return prisma.vote.upsert({
       where: {
