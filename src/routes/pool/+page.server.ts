@@ -1,12 +1,12 @@
-import type { UpsertVoteData } from "$lib/models/votes"
+import type { VoteData } from "$lib/models/votes"
 import * as votes from "$lib/models/votes"
 
 export async function load ({ locals }) {
-  const userId = locals.user!.id!
-  const userVotes = await votes.findByUserId(userId)
+  const userVotes = await votes.findByUserId(locals.user!.id!)
+  const voteMap = votes.mapVotes(userVotes)
 
   return { 
-    votes: votes.mapVotes(userVotes),
+    voteMap,
   }
 }
 
@@ -15,7 +15,7 @@ export const actions = {
     const userId = locals.user!.id!
 		const data = await request.formData()
 
-    const upsertData: UpsertVoteData[] = []
+    const upsertData: VoteData[] = []
 
     for (const entry of data.entries()) {
       const category = entry[0]

@@ -1,5 +1,7 @@
 import prisma from '$lib/prisma'
 import type { Vote as PrismaVote } from '@prisma/client'
+import { Categories } from '$lib/nominees'
+
 
 export type Vote = PrismaVote
 
@@ -7,12 +9,18 @@ export interface VoteMap {
   [category: string]: string
 }
 
-export interface UpsertVoteData {
+export interface VoteData {
   category: string
   nominee: string
 }
 
-export async function upsert({ userId, votes }: { userId: number, votes: UpsertVoteData[] }): Promise<Vote[]> {
+export async function upsert({ userId, votes }: { userId: number, votes: VoteData[] }): Promise<Vote[]> {
+  for (const vote of votes) {
+    if (!validateVoteData(vote)) {
+      throw new Error('Invalid vote data')
+    }
+  }
+
   const promises = votes.map(vote => {
     return prisma.vote.upsert({
       where: {
@@ -48,4 +56,11 @@ export function mapVotes(votes: Vote[]): VoteMap {
     acc[vote.category] = vote.nominee
     return acc
   }, {} as VoteMap)
+}
+
+export function validateVoteData(data: VoteData): boolean {
+  const category = Categories.find(c => c.name === data.category)
+  if (!category) return false
+  if (!category.nominees.includes(data.nominee)) return false
+  return true
 }

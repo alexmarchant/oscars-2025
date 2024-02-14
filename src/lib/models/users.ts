@@ -5,7 +5,7 @@ import { randomBytes } from 'crypto'
 
 const SaltRounds = 10
 
-export type User = Pick<PrismaUser, 'id' | 'displayName' | 'email'>
+export type User = Pick<PrismaUser, 'id' | 'displayName' | 'email' | 'paid' | 'admin'>
 
 export interface CreateUserData {
   displayName: string
@@ -25,6 +25,8 @@ export async function create (
       id: true,
       displayName: true,
       email: true,
+      paid: true,
+      admin: true,
     },
     data: {
       displayName,
@@ -46,10 +48,28 @@ export async function findBySessionToken(sessionToken: string): Promise<User | n
       id: true,
       displayName: true,
       email: true,
+      paid: true,
+      admin: true,
     },
     where: {
       sessionToken,
     }
+  })
+}
+
+export function update(id: number, data: Partial<User>): Promise<User> {
+  return prisma.user.update({
+    select: {
+      id: true,
+      displayName: true,
+      email: true,
+      paid: true,
+      admin: true,
+    },
+    where: {
+      id,
+    },
+    data,
   })
 }
 
@@ -74,6 +94,8 @@ export async function auth(
       id: true,
       displayName: true,
       email: true,
+      paid: true,
+      admin: true,
     },
     where: {
       email,

@@ -17,6 +17,7 @@ model User {
   passwordHash String
   sessionToken String  @unique
   admin        Boolean @default(false)
+  paid         Boolean @default(false)
   votes        Vote[]
 }
 
