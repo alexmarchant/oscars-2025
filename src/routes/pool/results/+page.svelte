@@ -21,7 +21,7 @@ export let data
 
 type UserWithVotesAndScores = UserWithVotes & { score: number }
 
-$: usersWithVotesAndScores = data.usersWithVotes.map<UserWithVotesAndScores>(user => ({
+$: usersWithVotesAndScores = data.paidUsers.map<UserWithVotesAndScores>(user => ({
   ...user,
   score: score(user)
 }))

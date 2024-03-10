@@ -7,14 +7,14 @@ export async function load ({ locals }) {
     throw redirect(302, '/pool/vote')
   }
 
-  const [usersWithVotes, winnerEntries] = await Promise.all([
+  const [paidUsers, allWinners] = await Promise.all([
     users.findAllPaidWithVotes(),
     winners.findAll()
   ])
-  const winnersMap = winners.mapWinners(winnerEntries)
+  const winnersMap = winners.mapWinners(allWinners)
 
   return { 
-    usersWithVotes,
+    paidUsers: paidUsers,
     winners: winnersMap,
   }
 }
