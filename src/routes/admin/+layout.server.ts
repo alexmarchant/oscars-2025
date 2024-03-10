@@ -8,9 +8,5 @@ export async function load ({ locals }) {
   if (!locals.user.admin) {
     throw fail(401)
   }
-
-  return {
-    settings: locals.settings
-  }
 }
 

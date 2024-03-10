@@ -3,6 +3,7 @@ import { Categories } from '$lib/nominees'
 import Radio from '$lib/components/Radio.svelte'
 import Checkbox from '$lib/components/Checkbox.svelte'
 import Button from '$lib/components/Button.svelte'
+import axios from 'axios'
 
 async function handleCheckLive(event: Event) {
   const target = event.target as HTMLInputElement
@@ -11,10 +12,7 @@ async function handleCheckLive(event: Event) {
 
   try {
     data.settings.live = newValue
-    await fetch('/api/settings', {
-      method: 'PUT',
-      body: JSON.stringify({ key: 'live', value: newValue }),
-    })
+    await axios.put('/api/settings', { key: 'live', value: newValue })
   } catch (e) {
     data.settings.live = oldValue
     alert('Sorry we ran into an issue')
@@ -26,10 +24,7 @@ async function handleWinnerSelect(category: string, nominee: string) {
 
   try {
     data.winners[category] = nominee
-    await fetch('/api/winners', {
-      method: 'PUT',
-      body: JSON.stringify({ category, nominee }),
-    })
+    await axios.put('/api/winners', { category, nominee })
   } catch (e) {
     data.winners[category] = oldWinner
     alert('Sorry we ran into an issue')
@@ -42,9 +37,8 @@ async function handleWinnerDelete(category: string) {
   try {
     delete data.winners[category]
     data.winners = data.winners
-    await fetch('/api/winners', {
-      method: 'DELETE',
-      body: JSON.stringify({ category }),
+    await axios.delete('/api/winners', { 
+      data: { category }
     })
   } catch (e) {
     data.winners[category] = oldWinner

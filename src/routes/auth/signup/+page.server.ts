@@ -4,15 +4,12 @@ import { SessionTokenKey } from '$lib/contants'
 import { redirect } from '@sveltejs/kit'
 import { validateEmail } from '$lib/validations'
 
-export async function load ({ locals }) {
-  if (locals.settings.live === 'true') {
-		return error(403, 'Signups are closed')
-  }
-}
-
-
 export const actions = {
-	async default ({ request, cookies }) {
+	async default ({ request, cookies, locals }) {
+		if (locals.settings.live === 'true') {
+			return error(403, 'Signups are closed')
+		}
+
 		const data = await request.formData()
 
 		const displayName = data.get('displayName')?.toString()

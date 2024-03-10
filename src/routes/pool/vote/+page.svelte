@@ -3,6 +3,7 @@ import { Categories } from '$lib/nominees'
 import Radio from '$lib/components/Radio.svelte'
 import Checkbox from '$lib/components/Checkbox.svelte'
 import A from '$lib/components/A.svelte'
+import axios from 'axios'
 
 export let data
 
@@ -11,10 +12,7 @@ async function handleNomineeSelect(category: string, nominee: string) {
 
   try {
     data.voteMap[category] = nominee
-    await fetch('/api/votes', {
-      method: 'PUT',
-      body: JSON.stringify({ category, nominee }),
-    })
+    await axios.put('/api/votes', { category, nominee })
   } catch (e) {
     data.voteMap[category] = oldCategoryVote
     alert('Sorry we ran into an issue')
@@ -29,10 +27,7 @@ async function handlePaidInput(e: Event) {
 
   try {
     data.user.paid = newPaidValue
-    await fetch('/api/users', {
-      method: 'PATCH',
-      body: JSON.stringify({ paid: newPaidValue }),
-    })
+    await axios.patch('/api/users', { paid: newPaidValue })
   } catch (e) {
     data.user.paid = oldPaidValue
     alert('Sorry we ran into an issue')

@@ -1,13 +1,14 @@
 <script lang="ts">
 import type { UserWithVotes } from '$lib/models/users.js'
 import { CategoryMap } from '$lib/nominees'
+import axios from 'axios'
 
 export let data
 
 async function fetchWinners() {
   try {
-    const res = await fetch('/api/winners')
-    const winners = await res.json()
+    const res = await axios.get<Record<string, string>>('/api/winners')
+    const winners = res.data
     data.winners = winners
   } catch (e) {
     console.error('Having trouble fetching winners')
