@@ -2,6 +2,7 @@
 import { Categories } from '$lib/nominees'
 import Radio from '$lib/components/Radio.svelte'
 import Checkbox from '$lib/components/Checkbox.svelte'
+import Button from '$lib/components/Button.svelte'
 
 async function handleCheckLive(event: Event) {
   const target = event.target as HTMLInputElement
@@ -28,6 +29,22 @@ async function handleWinnerSelect(category: string, nominee: string) {
     await fetch('/api/winners', {
       method: 'PUT',
       body: JSON.stringify({ category, nominee }),
+    })
+  } catch (e) {
+    data.winners[category] = oldWinner
+    alert('Sorry we ran into an issue')
+  }
+}
+
+async function handleWinnerDelete(category: string) {
+  const oldWinner = data.winners[category]
+
+  try {
+    delete data.winners[category]
+    data.winners = data.winners
+    await fetch('/api/winners', {
+      method: 'DELETE',
+      body: JSON.stringify({ category }),
     })
   } catch (e) {
     data.winners[category] = oldWinner
@@ -68,7 +85,7 @@ export let data
       </u>
     </h2>
 
-    <ul>
+    <ul class="mb-1">
       {#each category.nominees as nominee}
         <li>
           <Radio
@@ -82,5 +99,9 @@ export let data
         </li>
       {/each}
     </ul>
+
+    <Button on:click={() => handleWinnerDelete(category.name)}>
+      Clear
+    </Button>
   </div>
 {/each}

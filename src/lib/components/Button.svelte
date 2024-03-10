@@ -6,6 +6,7 @@ export let className = ''
 <button
   class={`${className} border border-black px-2 py-1 hover:bg-gray-200`}
   type={type}
+  on:click
 >
   <slot />
 </button>

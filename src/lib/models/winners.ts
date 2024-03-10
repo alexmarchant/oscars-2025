@@ -20,12 +20,21 @@ export async function upsertOne({ category, nominee }: { category: string, nomin
   })
 }
 
-export async function deleteOne(category: string): Promise<Winner> {
-  return prisma.winner.delete({
-    where: {
-      category,
+export async function deleteOne(category: string): Promise<Winner | null> {
+  try {
+    const result = await prisma.winner.delete({
+      where: {
+        category,
+      },
+    })
+    return result
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (e: any) {
+    if (e?.meta?.cause) {
+      console.log(e.meta.cause)
     }
-  })
+    return null
+  }
 }
 
 export function mapWinners(winners: Winner[]): Record<string, string> {
