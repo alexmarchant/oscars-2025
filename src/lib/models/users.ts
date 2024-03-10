@@ -7,6 +7,8 @@ const SaltRounds = 10
 
 export type User = Pick<PrismaUser, 'id' | 'displayName' | 'email' | 'paid' | 'admin'>
 
+export type UserWithVotes = User & { votes: { category: string, nominee: string }[] }
+
 export interface CreateUserData {
   displayName: string
   email: string
@@ -53,6 +55,27 @@ export async function findBySessionToken(sessionToken: string): Promise<User | n
     },
     where: {
       sessionToken,
+    }
+  })
+}
+
+export async function findAllPaidWithVotes(): Promise<UserWithVotes[]> {
+  return prisma.user.findMany({
+    select: {
+      id: true,
+      displayName: true,
+      email: true,
+      paid: true,
+      admin: true,
+      votes: {
+        select: {
+          category: true,
+          nominee: true,
+        }
+      }
+    },
+    where: {
+      paid: true
     }
   })
 }

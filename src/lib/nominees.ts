@@ -1,6 +1,7 @@
 export interface Category {
   name: string
   nominees: string[]
+  points: number
 }
 
 export const Categories: Category[] = [
@@ -17,7 +18,8 @@ export const Categories: Category[] = [
       "Past Lives",
       "Poor Things",
       "The Zone of Interest"
-    ]
+    ],
+    points: 10
   },
   {
     "name": "Best Director",
@@ -27,7 +29,8 @@ export const Categories: Category[] = [
       "Christopher Nolan — Oppenheimer",
       "Yorgos Lanthimos — Poor Things",
       "Jonathan Glazer — The Zone of Interest"
-    ]
+    ],
+    points: 8
   },
   {
     "name": "Best Actor in a Leading Role",
@@ -37,7 +40,8 @@ export const Categories: Category[] = [
       "Paul Giamatti — The Holdovers",
       "Cillian Murphy — Oppenheimer",
       "Jeffrey Wright — American Fiction"
-    ]
+    ],
+    points: 8
   },
   {
     "name": "Best Actress in a Leading Role",
@@ -47,7 +51,8 @@ export const Categories: Category[] = [
       "Sandra Hüller — Anatomy of a Fall",
       "Carey Mulligan — Maestro",
       "Emma Stone — Poor Things"
-    ]
+    ],
+    points: 8
   },
   {
     "name": "Best Actor in a Supporting Role",
@@ -57,7 +62,8 @@ export const Categories: Category[] = [
       "Robert Downey Jr. — Oppenheimer",
       "Ryan Gosling — Barbie",
       "Mark Ruffalo — Poor Things"
-    ]
+    ],
+    points: 6
   },
   {
     "name": "Best Actress in a Supporting Role",
@@ -67,7 +73,8 @@ export const Categories: Category[] = [
       "America Ferrera — Barbie",
       "Jodie Foster — Nyad",
       "Da’Vine Joy Randolph — The Holdovers"
-    ]
+    ],
+    points: 6
   },
   {
     "name": "Best Original Screenplay",
@@ -77,7 +84,8 @@ export const Categories: Category[] = [
       "Maestro — Bradley Cooper and Josh Singer",
       "May December — Samy Burch and Alex Mechanik",
       "Past Lives — Celine Song"
-    ]
+    ],
+    points: 5
   },
   {
     "name": "Best Adapted Screenplay",
@@ -87,7 +95,8 @@ export const Categories: Category[] = [
       "Oppenheimer — Christopher Nolan",
       "Poor Things — Tony McNamara",
       "The Zone of Interest — Jonathan Glazer"
-    ]
+    ],
+    points: 5
   },
   {
     "name": "Best Costume Design",
@@ -97,7 +106,8 @@ export const Categories: Category[] = [
       "Napoleon — Janty Yates and David Crossman",
       "Oppenheimer — Ellen Mirojnick",
       "Poor Things — Holly Waddington"
-    ]
+    ],
+    points: 3
   },
   {
     "name": "Best Makeup and Hairstyling",
@@ -107,7 +117,8 @@ export const Categories: Category[] = [
       "Oppenheimer — Luisa Abel",
       "Poor Things — Nadia Stacey, Mark Coulier, and Josh Weston",
       "Society of the Snow — Ana López-Puigcerver, David Martí, and Montse Ribé"
-    ]
+    ],
+    points: 3
   },
   {
     "name": "Best Cinematography",
@@ -117,7 +128,8 @@ export const Categories: Category[] = [
       "Maestro",
       "Oppenheimer",
       "Poor Things"
-    ]
+    ],
+    points: 4
   },
   {
     "name": "Best Visual Effects",
@@ -127,7 +139,8 @@ export const Categories: Category[] = [
       "Guardians of the Galaxy Vol. 3",
       "Mission: Impossible – Dead Reckoning Part One",
       "Napoleon"
-    ]
+    ],
+    points: 3
   },
   {
     "name": "Best Sound",
@@ -137,7 +150,8 @@ export const Categories: Category[] = [
       "Mission: Impossible – Dead Reckoning Part One",
       "Oppenheimer",
       "The Zone of Interest"
-    ]
+    ],
+    points: 2
   },
   {
     "name": "Best Film Editing",
@@ -147,7 +161,8 @@ export const Categories: Category[] = [
       "Killers of the Flower Moon",
       "Oppenheimer",
       "Poor Things"
-    ]
+    ],
+    points: 3
   },
   {
     "name": "Best Production Design",
@@ -157,7 +172,8 @@ export const Categories: Category[] = [
       "Napoleon",
       "Oppenheimer",
       "Poor Things"
-    ]
+    ],
+    points: 3
   },
   {
     "name": "Best Original Score",
@@ -167,7 +183,8 @@ export const Categories: Category[] = [
       "Killers of the Flower Moon — Robbie Robertson",
       "Oppenheimer — Ludwig Göransson",
       "Poor Things — Jerskin Fendrix"
-    ]
+    ],
+    points: 4
   },
   {
     "name": "Best Original Song",
@@ -177,7 +194,8 @@ export const Categories: Category[] = [
       "“It Never Went Away” — American Symphony",
       "“Wahzhazhe (A Song for My People)” — Killers of the Flower Moon",
       "“What Was I Made For?” — Barbie"
-    ]
+    ],
+    points: 3
   },
   {
     "name": "Best Animated Feature Film",
@@ -187,7 +205,8 @@ export const Categories: Category[] = [
       "Nimona",
       "Robot Dreams",
       "Spider-Man: Across the Spider-Verse"
-    ]
+    ],
+    points: 5
   },
   {
     "name": "Best International Feature Film",
@@ -197,7 +216,8 @@ export const Categories: Category[] = [
       "Society of the Snow — Spain",
       "The Teachers’ Lounge — Germany",
       "The Zone of Interest — UK"
-    ]
+    ],
+    points: 4
   },
   {
     "name": "Best Animated Short Film",
@@ -207,7 +227,8 @@ export const Categories: Category[] = [
       "Our Uniform",
       "Pachyderme",
       "War Is Over! Inspired by the Music of John & Yoko"
-    ]
+    ],
+    points: 2
   },
   {
     "name": "Best Live Action Short Film",
@@ -217,7 +238,8 @@ export const Categories: Category[] = [
       "Knight of Fortune",
       "Red, White and Blue",
       "The Wonderful Story of Henry Sugar"
-    ]
+    ],
+    points: 2
   },
   {
     "name": "Best Documentary Feature Film",
@@ -227,7 +249,8 @@ export const Categories: Category[] = [
       "Four Daughters",
       "To Kill a Tiger",
       "20 Days in Mariupol"
-    ]
+    ],
+    points: 4
   },
   {
     "name": "Best Documentary Short Film",
@@ -237,6 +260,12 @@ export const Categories: Category[] = [
       "Island in Between",
       "The Last Repair Shop",
       "Nǎi Nai & Wài Pó"
-    ]
+    ],
+    points: 2
   }
 ]
+
+export const CategoryMap = Categories.reduce((acc, category) => {
+  acc[category.name] = category
+  return acc
+}, {} as Record<string, Category>)

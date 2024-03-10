@@ -5,7 +5,7 @@ export async function GET ({ locals }) {
   if (!locals.user) return error(401)
 
   const userVotes = await votes.findByUserId(locals.user.id)
-  const voteMap = votes.mapVotes(userVotes)
+  const voteMap = votes.mapUserVotes(userVotes)
 
   return json({ voteMap })
 }
@@ -18,7 +18,7 @@ export async function PUT ({ locals, request }) {
     return error(400, 'Invalid body')
   }
 
-  await votes.upsert({
+  await votes.upsertMany({
     userId: locals.user.id,
     votes: [body]
   })

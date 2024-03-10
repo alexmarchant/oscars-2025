@@ -18,6 +18,13 @@ export async function PUT ({ locals, request }) {
   return new Response(null, { status: 200 })
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function validatePutBody(body: any): body is { category: string, nominee: string } {
+  if (!body) return false
+  if (!body.category || !body.nominee) return false
+  return true
+}
+
 export async function DELETE ({ locals, request }) {
   if (!locals.user) return error(401)
   if (!locals.user.admin) return error(401)
@@ -30,13 +37,6 @@ export async function DELETE ({ locals, request }) {
   await winners.deleteOne(body.category)
 
   return new Response(null, { status: 200 })
-}
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function validatePutBody(body: any): body is { category: string, nominee: string } {
-  if (!body) return false
-  if (!body.category || !body.nominee) return false
-  return true
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -61,18 +61,14 @@ export let data
 
 <h2>Settings</h2>
 <div class="mb-2">
-  <h2>
-    <u>
-      Live
-    </u>
-  </h2>
-
   <Checkbox
     name="live"
     value="live"
     checked={data.settings.live === 'true'}
     on:input={handleCheckLive}
-  />
+  >
+    Live
+  </Checkbox>
 </div>
 
 <h2>Winners</h2>

@@ -8,7 +8,7 @@ export async function load ({ locals }) {
   }
 
   const userVotes = await votes.findByUserId(locals.user!.id!)
-  const voteMap = votes.mapVotes(userVotes)
+  const voteMap = votes.mapUserVotes(userVotes)
 
   return { 
     voteMap,

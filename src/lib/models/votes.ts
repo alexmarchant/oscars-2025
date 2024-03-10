@@ -5,10 +5,6 @@ import { Categories } from '$lib/nominees'
 
 export type Vote = PrismaVote
 
-export interface VoteMap {
-  [category: string]: string
-}
-
 export interface VoteData {
   category: string
   nominee: string
@@ -51,11 +47,15 @@ export async function findByUserId(userId: number): Promise<Vote[]> {
   })
 }
 
-export function mapVotes(votes: Vote[]): VoteMap {
+export async function findAll(): Promise<Vote[]> {
+  return prisma.vote.findMany()
+}
+
+export function mapUserVotes(votes: Vote[]): Record<string, string> {
   return votes.reduce((acc, vote) => {
     acc[vote.category] = vote.nominee
     return acc
-  }, {} as VoteMap)
+  }, {} as Record<string, string>)
 }
 
 export function validateVoteData(data: VoteData): boolean {
