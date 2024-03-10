@@ -7,7 +7,7 @@ export const actions = {
 	async default ({ request, cookies }) {
 		const data = await request.formData()
 
-		const email = data.get('email')?.toString()
+		const email = data.get('email')?.toString().toLowerCase()
 		const password = data.get('password')?.toString()
 		const values = { email, password }
 

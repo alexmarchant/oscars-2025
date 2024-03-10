@@ -13,7 +13,7 @@ export const actions = {
 		const data = await request.formData()
 
 		const displayName = data.get('displayName')?.toString()
-		const email = data.get('email')?.toString()
+		const email = data.get('email')?.toString().toLowerCase()
 		const password = data.get('password')?.toString()
 		const passwordConfirmation = data.get('passwordConfirmation')?.toString()
 		const values = { displayName, email, password, passwordConfirmation }
