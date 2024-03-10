@@ -31,7 +31,7 @@ export const actions = {
       })
     }
 
-    await votes.upsert({
+    await votes.upsertMany({
       userId,
       votes: upsertData,
     })

@@ -1,10 +1,6 @@
 import prisma from '$lib/prisma'
 import type { Setting } from '@prisma/client'
 
-export interface SettingsData {
-
-}
-
 export function findAll(): Promise<Setting[]> {
   return prisma.setting.findMany()
 } 

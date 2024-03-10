@@ -20,8 +20,19 @@ async function handleCheckLive(event: Event) {
   }
 }
 
-function handleWinnerSelect(category: string, nominee: string) {
-  console.log(category, nominee)
+async function handleWinnerSelect(category: string, nominee: string) {
+  const oldWinner = data.winners[category]
+
+  try {
+    data.winners[category] = nominee
+    await fetch('/api/winners', {
+      method: 'PUT',
+      body: JSON.stringify({ category, nominee }),
+    })
+  } catch (e) {
+    data.winners[category] = oldWinner
+    alert('Sorry we ran into an issue')
+  }
 }
 
 export let data
@@ -63,7 +74,7 @@ export let data
           <Radio
             name={category.name}
             value={nominee}
-            checked={false}
+            checked={data.winners[category.name] === nominee}
             on:input={() => handleWinnerSelect(category.name, nominee)}
           >
             {nominee}

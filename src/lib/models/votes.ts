@@ -14,7 +14,7 @@ export interface VoteData {
   nominee: string
 }
 
-export async function upsert({ userId, votes }: { userId: number, votes: VoteData[] }): Promise<Vote[]> {
+export async function upsertMany({ userId, votes }: { userId: number, votes: VoteData[] }): Promise<Vote[]> {
   for (const vote of votes) {
     if (!validateVoteData(vote)) {
       throw new Error('Invalid vote data')
