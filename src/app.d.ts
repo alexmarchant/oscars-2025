@@ -7,6 +7,7 @@ declare global {
 		// interface Error {}
 		interface Locals {
 			user?: User | null
+			settings: Record<string, string>
 		}
 		// interface PageData {}
 		// interface PageState {}

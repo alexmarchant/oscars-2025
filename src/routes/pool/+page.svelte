@@ -3,7 +3,6 @@ import { Categories } from '$lib/nominees'
 import Radio from '$lib/components/Radio.svelte'
 import Checkbox from '$lib/components/Checkbox.svelte'
 import A from '$lib/components/A.svelte'
-import type { VoteMap } from '$lib/models/votes'
 
 export let data
 
