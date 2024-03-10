@@ -1,8 +1,15 @@
-import { fail } from '@sveltejs/kit'
+import { fail, error } from '@sveltejs/kit'
 import * as users from '$lib/models/users'
 import { SessionTokenKey } from '$lib/contants'
 import { redirect } from '@sveltejs/kit'
 import { validateEmail } from '$lib/validations'
+
+export async function load ({ locals }) {
+  if (locals.settings.live === 'true') {
+		return error(403, 'Signups are closed')
+  }
+}
+
 
 export const actions = {
 	async default ({ request, cookies }) {

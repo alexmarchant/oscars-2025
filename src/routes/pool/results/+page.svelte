@@ -2,6 +2,18 @@
 import type { UserWithVotes } from '$lib/models/users.js'
 import { CategoryMap } from '$lib/nominees'
 
+export let data
+
+async function fetchWinners() {
+  try {
+    const res = await fetch('/api/winners')
+    const winners = await res.json()
+    data.winners = winners
+  } catch (e) {
+    console.error('Having trouble fetching winners')
+  }
+}
+
 function score (user: UserWithVotes): number {
   let sum = 0
 
@@ -17,8 +29,6 @@ function score (user: UserWithVotes): number {
   return sum
 }
 
-export let data
-
 type UserWithVotesAndScores = UserWithVotes & { score: number }
 
 $: usersWithVotesAndScores = data.paidUsers.map<UserWithVotesAndScores>(user => ({
@@ -27,6 +37,9 @@ $: usersWithVotesAndScores = data.paidUsers.map<UserWithVotesAndScores>(user => 
 }))
 
 $: sortedUsersWithVotesAndScores = usersWithVotesAndScores.sort((a, b) => b.score - a.score)
+
+// Get winners every 5 seconds
+setInterval(fetchWinners, 5000)
 </script>
 
 <table class="w-full border-collapse border">

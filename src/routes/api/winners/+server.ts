@@ -1,5 +1,14 @@
-import { error } from '@sveltejs/kit'
+import { error, json } from '@sveltejs/kit'
 import * as winners from '$lib/models/winners'
+
+export async function GET ({ locals }) {
+  if (!locals.user) return error(401)
+
+  const allWinners = await winners.findAll()
+  const winnersMap = winners.mapWinners(allWinners)
+
+  return json(winnersMap)
+}
 
 export async function PUT ({ locals, request }) {
   if (!locals.user) return error(401)

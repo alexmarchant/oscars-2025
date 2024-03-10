@@ -8,6 +8,7 @@ const UserWhitelist: (keyof User)[] = [
 
 export async function PATCH ({ locals, request }) {
   if (!locals.user) return error(401)
+  if (locals.settings.live === 'true') return error(403)
 
   const body = await request.json()
   if (!validatePatchBody(body)) {

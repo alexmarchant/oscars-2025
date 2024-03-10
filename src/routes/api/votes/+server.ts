@@ -12,6 +12,7 @@ export async function GET ({ locals }) {
 
 export async function PUT ({ locals, request }) {
   if (!locals.user) return error(401)
+  if (locals.settings.live === 'true') return error(403)
 
   const body = await request.json()
   if (!validatePutBody(body)) {
