@@ -59,7 +59,7 @@ export async function findBySessionToken(sessionToken: string): Promise<User | n
   })
 }
 
-export async function findAllPaidWithVotes(): Promise<UserWithVotes[]> {
+export async function findAllWithVotes(): Promise<UserWithVotes[]> {
   return prisma.user.findMany({
     select: {
       id: true,
@@ -74,9 +74,6 @@ export async function findAllPaidWithVotes(): Promise<UserWithVotes[]> {
         }
       }
     },
-    where: {
-      paid: true
-    }
   })
 }
 

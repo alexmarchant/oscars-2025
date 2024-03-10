@@ -8,7 +8,7 @@ export async function load ({ locals }) {
   }
 
   const [paidUsers, allWinners] = await Promise.all([
-    users.findAllPaidWithVotes(),
+    users.findAllWithVotes(),
     winners.findAll()
   ])
   const winnersMap = winners.mapWinners(allWinners)
