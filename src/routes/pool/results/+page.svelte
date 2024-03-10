@@ -30,9 +30,11 @@ function score (user: UserWithVotes): number {
   return sum
 }
 
-type UserWithVotesAndScores = UserWithVotes & { score: number }
+type DispalyUserModel = UserWithVotes & {
+  score: number
+}
 
-$: usersWithVotesAndScores = data.paidUsers.map<UserWithVotesAndScores>(user => ({
+$: usersWithVotesAndScores = data.paidUsers.map<DispalyUserModel>(user => ({
   ...user,
   score: score(user)
 }))
@@ -47,13 +49,23 @@ setInterval(fetchWinners, 5000)
   <thead>
     <tr class="bg-gray-200">
       <th class="border text-left p-1">Name</th>
+      <th class="border text-center p-1">Complete Ballot</th>
+      <th class="border text-center p-1">Paid</th>
       <th class="border text-right p-1">Points</th>
     </tr>
   </thead>
   <tbody>
     {#each sortedUsersWithVotesAndScores as user}
       <tr>
-        <td class="border text-left p-1">{user.displayName}</td>
+        <td class="border text-left p-1">
+          {user.displayName}
+        </td>
+        <td class="border text-center p-1">
+          {user.votes.length === 23 ? '✅' : ''}
+        </td>
+        <td class="border text-center p-1">
+          {user.paid ? '💰' : ''}
+        </td>
         <td class="border text-right p-1">{user.score}</td>
       </tr>
     {/each}
