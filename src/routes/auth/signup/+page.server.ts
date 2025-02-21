@@ -1,6 +1,6 @@
 import { fail, error } from '@sveltejs/kit'
 import * as users from '$lib/models/users'
-import { SessionTokenKey } from '$lib/contants'
+import { SessionTokenKey } from '$lib/constants'
 import { redirect } from '@sveltejs/kit'
 import { validateEmail } from '$lib/validations'
 

@@ -1,6 +1,6 @@
 import { fail } from '@sveltejs/kit'
 import * as users from '$lib/models/users'
-import { SessionTokenKey } from '$lib/contants'
+import { SessionTokenKey } from '$lib/constants'
 import { redirect } from '@sveltejs/kit'
 
 export const actions = {

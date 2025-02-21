@@ -1,5 +1,5 @@
 import type { Cookies } from '@sveltejs/kit'
-import { SessionTokenKey } from '$lib/contants'
+import { SessionTokenKey } from '$lib/constants'
 import type { User } from '$lib/models/users'
 import * as users from '$lib/models/users'
 import * as settings from "$lib/models/settings"

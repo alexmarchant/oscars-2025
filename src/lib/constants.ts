@@ -1,0 +1,1 @@
+export const SessionTokenKey = 'oscars-2025-session-id'

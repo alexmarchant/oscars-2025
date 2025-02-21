@@ -6,264 +6,264 @@ export interface Category {
 
 export const Categories: Category[] = [
   {
-    "name": "Best Picture",
-    "nominees": [
-      "American Fiction",
-      "Anatomy of a Fall",
-      "Barbie",
-      "The Holdovers",
-      "Killers of the Flower Moon",
-      "Maestro",
-      "Oppenheimer",
-      "Past Lives",
-      "Poor Things",
-      "The Zone of Interest"
+    name: "Best Picture",
+    nominees: [
+      "Anora",
+      "The Brutalist",
+      "A Complete Unknown",
+      "Conclave",
+      "Dune: Part Two",
+      "Emilia Pérez",
+      "I'm Still Here",
+      "Nickel Boys",
+      "The Substance",
+      "Wicked"
     ],
     points: 10
   },
   {
-    "name": "Best Director",
-    "nominees": [
-      "Justine Triet — Anatomy of a Fall",
-      "Martin Scorsese — Killers of the Flower Moon",
-      "Christopher Nolan — Oppenheimer",
-      "Yorgos Lanthimos — Poor Things",
-      "Jonathan Glazer — The Zone of Interest"
+    name: "Best Director",
+    nominees: [
+      "Sean Baker — Anora",
+      "Brady Corbet — The Brutalist",
+      "James Mangold — A Complete Unknown",
+      "Jacques Audiard — Emilia Pérez",
+      "Coralie Fargeat — The Substance"
     ],
     points: 8
   },
   {
-    "name": "Best Actor in a Leading Role",
-    "nominees": [
-      "Bradley Cooper — Maestro",
-      "Colman Domingo — Rustin",
-      "Paul Giamatti — The Holdovers",
-      "Cillian Murphy — Oppenheimer",
-      "Jeffrey Wright — American Fiction"
+    name: "Best Actor in a Leading Role",
+    nominees: [
+      "Adrien Brody — The Brutalist",
+      "Timothée Chalamet — A Complete Unknown",
+      "Colman Domingo — Sing Sing",
+      "Ralph Fiennes — Conclave",
+      "Sebastian Stan — The Apprentice"
     ],
     points: 8
   },
   {
-    "name": "Best Actress in a Leading Role",
-    "nominees": [
-      "Annette Bening — Nyad",
-      "Lily Gladstone — Killers of the Flower Moon",
-      "Sandra Hüller — Anatomy of a Fall",
-      "Carey Mulligan — Maestro",
-      "Emma Stone — Poor Things"
+    name: "Best Actress in a Leading Role",
+    nominees: [
+      "Cynthia Erivo — Wicked",
+      "Karla Sofía Gascón — Emilia Pérez",
+      "Mikey Madison — Anora",
+      "Demi Moore — The Substance",
+      "Fernanda Torres — I'm Still Here"
     ],
     points: 8
   },
   {
-    "name": "Best Actor in a Supporting Role",
-    "nominees": [
-      "Sterling K. Brown — American Fiction",
-      "Robert De Niro — Killers of the Flower Moon",
-      "Robert Downey Jr. — Oppenheimer",
-      "Ryan Gosling — Barbie",
-      "Mark Ruffalo — Poor Things"
+    name: "Best Actor in a Supporting Role",
+    nominees: [
+      "Yura Borisov — Anora",
+      "Kieran Culkin — A Real Pain",
+      "Edward Norton — A Complete Unknown",
+      "Guy Pearce — The Brutalist",
+      "Jeremy Strong — The Apprentice"
     ],
     points: 6
   },
   {
-    "name": "Best Actress in a Supporting Role",
-    "nominees": [
-      "Emily Blunt — Oppenheimer",
-      "Danielle Brooks — The Color Purple",
-      "America Ferrera — Barbie",
-      "Jodie Foster — Nyad",
-      "Da’Vine Joy Randolph — The Holdovers"
+    name: "Best Actress in a Supporting Role",
+    nominees: [
+      "Monica Barbaro — A Complete Unknown",
+      "Ariana Grande — Wicked",
+      "Felicity Jones — The Brutalist",
+      "Isabella Rossellini — Conclave",
+      "Zoe Saldaña — Emilia Pérez"
     ],
     points: 6
   },
   {
-    "name": "Best Original Screenplay",
-    "nominees": [
-      "Anatomy of a Fall — Justine Triet and Arthur Harari",
-      "The Holdovers — David Hemingson",
-      "Maestro — Bradley Cooper and Josh Singer",
-      "May December — Samy Burch and Alex Mechanik",
-      "Past Lives — Celine Song"
+    name: "Best Original Screenplay",
+    nominees: [
+      "Anora — Sean Baker",
+      "The Brutalist — Brady Corbet, Mona Fastvold",
+      "A Real Pain — Jesse Eisenberg",
+      "September 5 — Moritz Binder, Tim Fehlbaum; Co-Written by Alex David",
+      "The Substance — Coralie Fargeat"
     ],
     points: 5
   },
   {
-    "name": "Best Adapted Screenplay",
-    "nominees": [
-      "American Fiction — Cord Jefferson",
-      "Barbie — Greta Gerwig and Noah Baumbach",
-      "Oppenheimer — Christopher Nolan",
-      "Poor Things — Tony McNamara",
-      "The Zone of Interest — Jonathan Glazer"
+    name: "Best Adapted Screenplay",
+    nominees: [
+      "A Complete Unknown — James Mangold, Jay Cocks",
+      "Conclave — Peter Straughan",
+      "Emilia Pérez — Jacques Audiard; In collaboration with Thomas Bidegain, Léa Mysius and Nicolas Livecchi",
+      "Nickel Boys — RaMell Ross & Joslyn Barnes",
+      "Sing Sing — Clint Bentley, Greg Kwedar; Story by Clint Bentley, Greg Kwedar, Clarence Maclin, John 'Divine G' Whitfield"
     ],
     points: 5
   },
   {
-    "name": "Best Costume Design",
-    "nominees": [
-      "Barbie — Jacqueline Durran",
-      "Killers of the Flower Moon — Jacqueline West",
-      "Napoleon — Janty Yates and David Crossman",
-      "Oppenheimer — Ellen Mirojnick",
-      "Poor Things — Holly Waddington"
+    name: "Best Costume Design",
+    nominees: [
+      "A Complete Unknown — Arianne Phillips",
+      "Conclave — Lisy Christl",
+      "Gladiator II — Janty Yates and Dave Crossman",
+      "Nosferatu — Linda Muir",
+      "Wicked — Paul Tazewell"
     ],
     points: 3
   },
   {
-    "name": "Best Makeup and Hairstyling",
-    "nominees": [
-      "Golda — Karen Hartley Thomas, Suzi Battersby, and Ashra Kelly-Blue",
-      "Maestro — Kazu Hiro, Kay Georgiou, and Lori McCoy-Bell",
-      "Oppenheimer — Luisa Abel",
-      "Poor Things — Nadia Stacey, Mark Coulier, and Josh Weston",
-      "Society of the Snow — Ana López-Puigcerver, David Martí, and Montse Ribé"
+    name: "Best Makeup and Hairstyling",
+    nominees: [
+      "A Different Man",
+      "Emilia Pérez",
+      "Nosferatu",
+      "The Substance",
+      "Wicked"
     ],
     points: 3
   },
   {
-    "name": "Best Cinematography",
-    "nominees": [
-      "El Conde",
-      "Killers of the Flower Moon",
-      "Maestro",
-      "Oppenheimer",
-      "Poor Things"
+    name: "Best Cinematography",
+    nominees: [
+      "The Brutalist — Lol Crawley",
+      "Dune: Part Two — Greig Fraser",
+      "Emilia Pérez — Paul Guilhaume",
+      "Maria — Ed Lachman",
+      "Nosferatu — Jarin Blaschke"
     ],
     points: 4
   },
   {
-    "name": "Best Visual Effects",
-    "nominees": [
-      "The Creator",
-      "Godzilla Minus One",
-      "Guardians of the Galaxy Vol. 3",
-      "Mission: Impossible – Dead Reckoning Part One",
-      "Napoleon"
+    name: "Best Visual Effects",
+    nominees: [
+      "Alien: Romulus",
+      "Better Man",
+      "Dune: Part Two",
+      "Kingdom of the Planet of the Apes",
+      "Wicked"
     ],
     points: 3
   },
   {
-    "name": "Best Sound",
-    "nominees": [
-      "The Creator",
-      "Maestro",
-      "Mission: Impossible – Dead Reckoning Part One",
-      "Oppenheimer",
-      "The Zone of Interest"
+    name: "Best Sound",
+    nominees: [
+      "A Complete Unknown",
+      "Dune: Part Two",
+      "Emilia Pérez",
+      "Wicked",
+      "The Wild Robot"
     ],
     points: 2
   },
   {
-    "name": "Best Film Editing",
-    "nominees": [
-      "Anatomy of a Fall",
-      "The Holdovers",
-      "Killers of the Flower Moon",
-      "Oppenheimer",
-      "Poor Things"
+    name: "Best Film Editing",
+    nominees: [
+      "Anora — Sean Baker",
+      "The Brutalist — David Jancso",
+      "Conclave — Nick Emerson",
+      "Emilia Pérez — Juliette Welfling",
+      "Wicked — Myron Kerstein"
     ],
     points: 3
   },
   {
-    "name": "Best Production Design",
-    "nominees": [
-      "Barbie",
-      "Killers of the Flower Moon",
-      "Napoleon",
-      "Oppenheimer",
-      "Poor Things"
+    name: "Best Production Design",
+    nominees: [
+      "The Brutalist",
+      "Conclave",
+      "Dune: Part Two",
+      "Nosferatu",
+      "Wicked"
     ],
     points: 3
   },
   {
-    "name": "Best Original Score",
-    "nominees": [
-      "American Fiction — Laura Karpman",
-      "Indiana Jones and the Dial of Destiny — John Williams",
-      "Killers of the Flower Moon — Robbie Robertson",
-      "Oppenheimer — Ludwig Göransson",
-      "Poor Things — Jerskin Fendrix"
+    name: "Best Original Score",
+    nominees: [
+      "The Brutalist — Daniel Blumberg",
+      "Conclave — Volker Bertelmann",
+      "Emilia Pérez — Clément Ducol and Camille",
+      "Wicked — John Powell and Stephen Schwartz",
+      "The Wild Robot — Kris Bowers"
     ],
     points: 4
   },
   {
-    "name": "Best Original Song",
-    "nominees": [
-      "“The Fire Inside” — Flamin’ Hot",
-      "“I’m Just Ken” — Barbie",
-      "“It Never Went Away” — American Symphony",
-      "“Wahzhazhe (A Song for My People)” — Killers of the Flower Moon",
-      "“What Was I Made For?” — Barbie"
+    name: "Best Original Song",
+    nominees: [
+      "El Mal — Emilia Pérez",
+      "The Journey — The Six Triple Eight",
+      "Like A Bird — Sing Sing",
+      "Mi Camino — Emilia Pérez",
+      "Never Too Late — Elton John: Never Too Late"
     ],
     points: 3
   },
   {
-    "name": "Best Animated Feature Film",
-    "nominees": [
-      "The Boy and the Heron",
-      "Elemental",
-      "Nimona",
-      "Robot Dreams",
-      "Spider-Man: Across the Spider-Verse"
+    name: "Best Animated Feature Film",
+    nominees: [
+      "Flow",
+      "Inside Out 2",
+      "Memoir of a Snail",
+      "Wallace & Gromit: Vengeance Most Fowl",
+      "The Wild Robot"
     ],
     points: 5
   },
   {
-    "name": "Best International Feature Film",
-    "nominees": [
-      "Io Capitano — Italy",
-      "Perfect Days — Japan",
-      "Society of the Snow — Spain",
-      "The Teachers’ Lounge — Germany",
-      "The Zone of Interest — UK"
+    name: "Best International Feature Film",
+    nominees: [
+      "Brazil — I'm Still Here",
+      "Denmark — The Girl with the Needle",
+      "France — Emilia Pérez",
+      "Germany — The Seed of the Sacred Fig",
+      "Latvia — Flow"
     ],
     points: 4
   },
   {
-    "name": "Best Animated Short Film",
-    "nominees": [
-      "Letter to a Pig",
-      "Ninety-Five Senses",
-      "Our Uniform",
-      "Pachyderme",
-      "War Is Over! Inspired by the Music of John & Yoko"
+    name: "Best Animated Short Film",
+    nominees: [
+      "Beautiful Men",
+      "In the Shadow of the Cypress",
+      "Magic Candies",
+      "Wander to Wonder",
+      "Yuck!"
     ],
     points: 2
   },
   {
-    "name": "Best Live Action Short Film",
-    "nominees": [
-      "The After",
-      "Invincible",
-      "Knight of Fortune",
-      "Red, White and Blue",
-      "The Wonderful Story of Henry Sugar"
+    name: "Best Live Action Short Film",
+    nominees: [
+      "A Lien",
+      "Anuja",
+      "I'm Not a Robot",
+      "The Last Ranger",
+      "The Man Who Could Not Remain Silent"
     ],
     points: 2
   },
   {
-    "name": "Best Documentary Feature Film",
-    "nominees": [
-      "Bobi Wine: The People’s President",
-      "The Eternal Memory",
-      "Four Daughters",
-      "To Kill a Tiger",
-      "20 Days in Mariupol"
+    name: "Best Documentary Feature Film",
+    nominees: [
+      "Black Box Diaries",
+      "No Other Land",
+      "Porcelain War",
+      "Soundtrack to a Coup d'Etat",
+      "Sugarcane"
     ],
     points: 4
   },
   {
-    "name": "Best Documentary Short Film",
-    "nominees": [
-      "The ABCs of Book Banning",
-      "The Barber of Little Rock",
-      "Island in Between",
-      "The Last Repair Shop",
-      "Nǎi Nai & Wài Pó"
+    name: "Best Documentary Short Film",
+    nominees: [
+      "Death by Numbers",
+      "I Am Ready, Warden",
+      "Incident",
+      "Instruments of a Beating Heart",
+      "The Only Girl in the Orchestra"
     ],
     points: 2
   }
-]
+];
 
 export const CategoryMap = Categories.reduce((acc, category) => {
   acc[category.name] = category
