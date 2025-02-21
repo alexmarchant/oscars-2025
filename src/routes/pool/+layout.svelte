@@ -6,7 +6,7 @@ export let data
 
 <div class="flex justify-between items-center mb-2">
   <div>
-    <h1>Oscar Pool 2024</h1>
+    <h1>Oscar Pool 2025</h1>
   </div>
 
   <div class="flex items-center">
