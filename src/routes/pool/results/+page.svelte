@@ -84,7 +84,7 @@ setInterval(fetchWinners, 5000)
       {/each}
     </tr>
     {#each sortedUsersWithVotesAndScores as user}
-      <tr>
+      <tr class="{data.user.id === user.id ? 'bg-yellow-50': ''}">
         <TD classNames="text-left">
           {user.displayName}
         </TD>
